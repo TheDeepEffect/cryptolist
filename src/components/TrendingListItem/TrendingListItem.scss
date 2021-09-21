@@ -1,0 +1,40 @@
+.trending-list-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .trending-list-item-subject {
+    display: flex;
+    align-items: center;
+    .trending-list-item-info {
+      display: flex;
+      flex-direction: column;
+      margin: 0.25rem;
+      .trending-list-item-name {
+        font-size: larger;
+        font-weight: 800;
+      }
+      .trending-list-item-symbol {
+        font-size: small;
+      }
+    }
+  }
+
+  .trending-list-item-price {
+    display: flex;
+    flex-direction: column;
+    .price {
+      &:before {
+        content: "$";
+      }
+      font-weight: 800;
+    }
+  }
+}
+.down {
+  color: red;
+}
+.up {
+  color: green;
+}

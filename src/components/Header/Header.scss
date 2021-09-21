@@ -1,0 +1,19 @@
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #f05454;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 0.75rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  .greetings {
+    span {
+      font-weight: 700;
+    }
+  }
+  .message {
+    font-size: x-large;
+  }
+}

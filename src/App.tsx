@@ -5,16 +5,14 @@ import { routes } from "./config/routes";
 
 function App() {
   return (
-    <div className='App'>
-      <Router>
-        <Switch>
-          {Object.keys(routes).map((key) => {
-            const value = routes[key];
-            return <Route {...value} />;
-          })}
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        {Object.keys(routes).map((key) => {
+          const value = routes[key];
+          return <Route {...value} />;
+        })}
+      </Switch>
+    </Router>
   );
 }
 
