@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState } from "react";
 
 import { Item } from "./Item";
 import "./List.scss";
+
 type IListProps = {
   children: ReactNode;
   header?: string;

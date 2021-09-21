@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { useList } from "../../utils/hools/useList";
+import { useList } from "../../utils/hooks/useList";
 import "./Item.scss";
 type IItemProps = {
   children: ReactNode;
