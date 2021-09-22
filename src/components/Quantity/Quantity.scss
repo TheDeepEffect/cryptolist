@@ -1,0 +1,15 @@
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .quantity-change {
+    width: 100%;
+    margin: 1rem;
+    .btn {
+      margin: 0.5rem;
+    }
+    span {
+      font-size: large;
+    }
+  }
+}

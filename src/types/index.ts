@@ -81,8 +81,8 @@ export type IItemProps = {
 };
 export type ITrendingListItem = {
   children?: ReactNode;
-  title: string;
-  symbol: string;
+  title?: string;
+  symbol?: string;
   icon?: string;
   price?: string;
   percentage?: string;
@@ -104,3 +104,10 @@ export type IRoutesConfig = {
 };
 
 export type IGET = { url: string; headers?: HeadersInit };
+
+export type IQuantityProps = {
+  item: IWallet;
+  onIncrease: (symbol: string) => void;
+  onDecrease: (symbol: string) => void;
+  onRemove: (symbol: string) => void;
+};

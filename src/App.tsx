@@ -11,7 +11,7 @@ function App() {
         <Switch>
           {Object.keys(routes).map((key) => {
             const value = routes[key];
-            return <Route {...value} />;
+            return <Route key={key} {...value} />;
           })}
         </Switch>
       </Router>

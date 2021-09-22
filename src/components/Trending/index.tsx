@@ -1,11 +1,20 @@
+import { useStore } from "../../utils/hooks/useStore";
 import { useTrending } from "../../utils/hooks/useTrending";
 import { Button } from "../Button";
 import List from "../List";
 import { TrendingListItem } from "../TrendingListItem";
 import "./Trending.scss";
 export const Trending = () => {
-  const { currencies, isLoadMore, loading, fetchMore, setCurrentCoin } =
-    useTrending();
+  const {
+    currencies,
+    isLoadMore,
+    loading,
+    fetchMore,
+    setCurrentCoin,
+    handleAddToWallet,
+    checkIsInWallet,
+  } = useTrending();
+
   return (
     <div className='trending-list-wrapper'>
       <List header='Trending Coins'>
@@ -22,7 +31,14 @@ export const Trending = () => {
               price={`${item.price}`}
               percentage={`${item.percent_change_24h}`}
             >
-              <Button>Add to Wallet</Button>
+              <Button
+                onClick={() => handleAddToWallet(item)}
+                disabled={checkIsInWallet(item.symbol)}
+              >
+                {checkIsInWallet(item.symbol)
+                  ? "Already in wallet"
+                  : "Add to Wallet"}
+              </Button>
             </TrendingListItem>
           </List.Item>
         ))}
