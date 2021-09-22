@@ -1,12 +1,21 @@
-import { ReactNode } from "react";
+import { IItemProps } from "../../types";
 import { useList } from "../../utils/hooks/useList";
 import "./Item.scss";
-type IItemProps = {
-  children: ReactNode;
-};
 
-export const Item = ({ children }: IItemProps) => {
-  const { selected, setSelected } = useList();
-
-  return <div className={`item`}>{children}</div>;
+export const Item = ({ children, onClick = () => {}, id }: IItemProps) => {
+  const handleOnClick = () => {
+    if (id && selectable) {
+      onClick();
+      setSelected(id);
+    }
+  };
+  const { selected, setSelected, selectable } = useList();
+  return (
+    <div
+      className={`item ${id === selected ? "selected" : ""}`}
+      onClick={handleOnClick}
+    >
+      {children}
+    </div>
+  );
 };

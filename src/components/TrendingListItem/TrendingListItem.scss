@@ -7,6 +7,7 @@
   .trending-list-item-subject {
     display: flex;
     align-items: center;
+    width: 100%;
     .trending-list-item-info {
       display: flex;
       flex-direction: column;
@@ -23,13 +24,21 @@
 
   .trending-list-item-price {
     display: flex;
+    align-items: center;
     flex-direction: column;
+    width: 100%;
     .price {
       &:before {
         content: "$";
       }
       font-weight: 800;
     }
+  }
+  .trending-list-item-children {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
   }
 }
 .down {

@@ -1,33 +1,11 @@
-import { createContext, ReactNode, useReducer } from "react";
+import { createContext, useReducer } from "react";
+import { IAction, IState, IStoreContext, IStoreProps } from "../types";
 
-type ITimeSeries = {
-  asset_id: number;
-  time: number;
-  open: number;
-  close: number;
-};
-type ICurrency = {
-  id: number;
-  name: string;
-  symbol: string;
-  icon: string;
-  price: number;
-  percent_change_24h: number;
-  timeSeries: ITimeSeries[];
-};
-type IState = {
-  currencies: ICurrency[];
-};
-type IAction = { type: "SET_CURRENCIES"; payload: ICurrency[] };
-type IStoreContext = {
-  state: IState;
-  dispatch: (action: IAction) => void;
-};
-type IStoreProps = {
-  children: ReactNode;
-};
 const initialState: IState = {
   currencies: [],
+  meta: [],
+  currentCoin: null,
+  wallet: [],
 };
 
 const reducers = (state: IState, action: IAction) => {
@@ -37,13 +15,54 @@ const reducers = (state: IState, action: IAction) => {
         ...state,
         currencies: [...state.currencies, ...action.payload],
       };
-
+    case "SET_META":
+      return {
+        ...state,
+        meta: [...action.payload],
+      };
+    case "SET_CURRENT_COIN":
+      return {
+        ...state,
+        currentCoin: action.payload,
+      };
+    case "ADD_TO_WALLET":
+      return {
+        ...state,
+        wallet: [
+          ...state.wallet,
+          { quantity: 1, currency: { ...action.payload } },
+        ],
+      };
+    case "REMOVE_FROM_WALLET":
+      return {
+        ...state,
+        wallet: [
+          ...state?.wallet.filter(
+            (item) => item.currency.symbol !== action.payload
+          ),
+        ],
+      };
+    case "SET_WALLET_QUANTITY":
+      return {
+        ...state,
+        wallet: state?.wallet.map((item) => {
+          if (item?.currency?.symbol === action.payload.symbol) {
+            return {
+              ...item,
+              quantity: action.payload.quantity,
+            };
+          }
+          return item;
+        }),
+      };
     default: {
       throw new Error(`Unhandled action type: ${action}`);
     }
   }
 };
+
 export const Context = createContext<IStoreContext | null>(null);
+
 export const Store = (props: IStoreProps) => {
   const [state, dispatch] = useReducer(reducers, initialState);
   const { children } = props;

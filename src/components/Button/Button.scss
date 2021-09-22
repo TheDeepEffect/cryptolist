@@ -9,6 +9,10 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 0.25rem;
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 }
 .btn-inverse {
   background-color: white;
@@ -21,4 +25,8 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 0.25rem;
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 }

@@ -1,13 +1,12 @@
+import { useHistory } from "react-router";
+import { IHeaderProps } from "../../types";
 import { Button } from "../Button";
 import "./Header.scss";
 
-type IHeaderProps = {
-  username?: string;
-  message?: string;
-};
 export const Header = (props: IHeaderProps) => {
   const { username = "Alex", message = "Make your first investment today" } =
     props;
+  const history = useHistory();
   return (
     <div className='header'>
       <div className='greetings'>
@@ -15,7 +14,9 @@ export const Header = (props: IHeaderProps) => {
       </div>
       <div className='message'>{message}</div>
       <div>
-        <Button inverse>Go to Wallet</Button>
+        <Button inverse onClick={() => history.push("/wallet")}>
+          Go to Wallet
+        </Button>
       </div>
     </div>
   );

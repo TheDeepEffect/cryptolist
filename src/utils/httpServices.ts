@@ -1,4 +1,4 @@
-type IGET = { url: string };
+import { IGET } from "../types";
 
 export const GET = async (props: IGET) => {
   try {

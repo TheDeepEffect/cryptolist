@@ -1,9 +1,6 @@
+import { IButtonProps } from "../../types";
 import "./Button.scss";
 
-type IButtonProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> & { inverse?: boolean };
 export const Button = (props: IButtonProps) => {
   const { children, inverse, ...rest } = props;
   return (

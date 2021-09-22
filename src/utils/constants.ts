@@ -7,4 +7,4 @@ export const ICON_API_URL = ({
 }: {
   symbol: string;
   size?: string;
-}) => `${process.env.REACT_APP_ICON_API}${symbol}/${size}`;
+}) => `${process.env.REACT_APP_ICON_API}${symbol}`;

@@ -1,20 +1,4 @@
-import { RouteComponentProps } from "react-router-dom";
-
-export type IRoutesConfig = {
-  [key: string]: {
-    id: string;
-    name: string;
-    description?: string;
-    path: string;
-    path_string: (params: any) => string;
-    exact: boolean;
-    isPrivate: boolean;
-    isStatic?: boolean;
-    component?:
-      | React.ComponentType<RouteComponentProps<any>>
-      | React.ComponentType<any>;
-  };
-};
+import { IRoutesConfig } from "../types";
 
 export const routesConfig: IRoutesConfig = {
   home: {
