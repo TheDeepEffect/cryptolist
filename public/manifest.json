@@ -1,6 +1,6 @@
 {
-  "short_name": "Cryptist",
-  "name": "Crypto Wallet",
+  "short_name": "cryptolist",
+  "name": "cryptolist",
   "icons": [
     {
       "src": "doge.ico",
